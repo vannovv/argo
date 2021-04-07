@@ -21,10 +21,10 @@ spec:
           - name: http
             containerPort: 8080
             protocol: TCP
-          resources:
-            requests:
-              memory: 32Mi
-              cpu: 5m
+        resources:
+          requests:
+            memory: 32Mi
+            cpu: 5m
     strategy:
       blueGreen:
         # activeService specifies the service to update with the new template hash at time of promotion.
