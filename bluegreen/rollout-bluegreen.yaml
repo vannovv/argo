@@ -58,7 +58,7 @@ spec:
           metadata:
             name: rollouts-demo-preview
             labels:
-              app: rollouts-demo
+              app: rollouts-demo-preview
             spec:
               ports:
                 - port: 80
