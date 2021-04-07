@@ -39,29 +39,29 @@ spec:
         # stack as soon as the ReplicaSet are completely ready/available.
         # Rollouts can be resumed using: `kubectl argo rollouts promote ROLLOUT`
         autoPromotionEnabled: false
+  ---
+  kind: Service
+  apiVersion: v1
+  metadata:
+    name: rollouts-demo
+    labels:
+      app: rollouts-demo
+  spec:
+    selector:
+      app: rollouts-demo
+    ports:
+    - port: 80
+      targetPort: 8080
         ---
-        apiVersion: v1
-        kind: Service
-        metadata:
-          name: rollouts-demo
-          labels:
-            app: rollouts-demo
-          spec:
-            ports:
-              - port: 80
-                targetPort: 8080
-            selector:
-              app: rollouts-demo
-        ---
-        apiVersion: v1
-          kind: Service
-          metadata:
-            name: rollouts-demo-preview
-            labels:
-              app: rollouts-demo-preview
-            spec:
-              ports:
-                - port: 80
-                  targetPort: 8080
-              selector:
-                app: rollouts-demo
+  kind: Service
+    apiVersion: v1
+    metadata:
+      name: rollouts-demo
+      labels:
+        app: rollouts-demo
+    spec:
+      selector:
+        app: rollouts-demo
+      ports:
+        - port: 80
+          targetPort: 8080
